@@ -1,7 +1,6 @@
 var host = "https://www.youtube.com/results?search_query=";
 chrome.webRequest.onBeforeRequest.addListener(
 	function(details) {
-		alert(details.url.match(/^https?:\/\/[^?]+[?][q][=]([^&]*).*/)[1]);
 		return {redirectUrl: host + details.url.match(/^https?:\/\/[^?]+[?][q][=]([^&]*).*/)[1]};
 	},
 	{
